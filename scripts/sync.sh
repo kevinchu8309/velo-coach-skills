@@ -37,9 +37,12 @@ NEWEST="$(date +%Y-%m-%d)"
 ICU_AUTH=$(echo -n "API_KEY:${INTERVALS_ICU_API_KEY}" | base64)
 ICU_BASE="https://intervals.icu/api/v1/athlete/${INTERVALS_ICU_ATHLETE_ID}"
 
-EXISTING_LAPS=$(ls "$DATA_DIR/laps/"*.json 2>/dev/null | wc -l | tr -d ' ')
+EXISTING_LAPS="$(find "$DATA_DIR/laps" -name '*.json' 2>/dev/null | wc -l | tr -d ' ')"
 LAPS_DAYS=14
-[[ "$EXISTING_LAPS" -eq 0 ]] && LAPS_DAYS=90 && echo "First sync — fetching laps for last ${LAPS_DAYS} days"
+if [[ "$EXISTING_LAPS" -eq 0 ]]; then
+  LAPS_DAYS=90
+  echo "First sync — fetching laps for last ${LAPS_DAYS} days"
+fi
 
 echo "=== Velo Coach Sync ==="
 echo "Range: $OLDEST to $NEWEST | Laps: last ${LAPS_DAYS} days"
