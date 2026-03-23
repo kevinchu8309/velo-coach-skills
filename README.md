@@ -1,4 +1,8 @@
-# velo-coach-skills
+# velo-coach-skills 🚴
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skills-orange)](https://docs.anthropic.com/en/docs/claude-code)
+[![intervals.icu](https://img.shields.io/badge/intervals.icu-Supported-green)](https://intervals.icu)
 
 AI-powered cycling coach skills for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
@@ -84,6 +88,44 @@ Then just talk to your coach:
 2. Navigate to Settings (gear icon) > Developer
 3. Create a new API key
 4. Your Athlete ID is shown on the same page (starts with `i`)
+
+## Example Output
+
+### `/status` — Daily Check-in
+```
+🚴 Fitness Check — 2026-03-21
+
+📊 PMC Status
+CTL: 63 | ATL: 73 | TSB: -10
+Trend: CTL ↑3 this week | Ramp rate: +1.8/wk
+
+⚡ Power Profile (42-day bests)
+5s: 520W (7.4 W/kg) | 1min: 350W (5.0) | 5min: 280W (4.0) | 20min: 240W (3.4)
+
+🎯 Goal Progress
+FTP: 200W → 250W target (80% there)
+W/kg: 2.86 → 3.57 target
+
+🟡 Alert: TSB -10 — moderate fatigue accumulation. Consider easy day if legs feel heavy.
+```
+
+### `/ride-review` — Post-Ride Analysis
+```
+🚴 Ride Review: SST 2x20min — 2026-03-21
+
+📊 Overview
+Duration: 1:05 | NP: 192W (2.74 W/kg) | IF: 0.96 | TSS: 85
+
+Compliance: 8.2 / 10
+├── ⚡ Power accuracy:  90% ██████████████████░░ (0.90)
+├── ⏱️ Duration:       100% ████████████████████ (1.00)
+├── 📊 Consistency:     85% █████████████████░░░ (0.85)
+└── ❤️ HR response:     80% ████████████████░░░░ (0.80)
+
+✅ Strong: Held target watts through both intervals
+⚡ Improve: HR drifted 8% — consider more Z2 base work
+🔮 Next: Easy spin tomorrow, then threshold intervals Thursday
+```
 
 ## Project Structure
 
